@@ -52,6 +52,7 @@ const MovableItem = ({ id, name, description, index, currentColumnName, moveCard
         if (event.target.name.value.trim()) {
             setName(event.target.name.value);
         }
+        handleClose();
     }
 
     const changeItemColumn = (currentItem, columnName) => {
@@ -150,6 +151,7 @@ const MovableItem = ({ id, name, description, index, currentColumnName, moveCard
             <div className='item-title' onClick={handleShow}>{sName}</div>
             <div className='item-description' onClick={handleShow}>{sDesc}</div>
             <Modal
+                className="modal"
                 show={show}
                 onHide={handleClose}
                 backdrop="static"

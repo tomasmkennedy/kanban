@@ -3,12 +3,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './fonts/OpenSans-Regular.ttf';
+import './fonts/Inconsolata-SemiBold.ttf';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <div className='navbar'>
+      <ul>
+        <li><a>Kanban</a></li>
+      </ul>
+    </div>
     <App />
   </React.StrictMode>
 );

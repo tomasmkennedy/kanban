@@ -1,14 +1,30 @@
 .Kcontainer {
-  font-family: "OpenSans";
+  font-family: "Inconsolata";
   display: flex;
   flex-direction: row;
   align-content: start;
-  /* justify-content: space-around; */
 }
 
 .button-container {
   display: flex;
   justify-content: space-around;
+}
+
+.navbar {
+  padding: 10px;
+  font-size: 28px;
+  color: white;
+  background-color: black;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  float: right;
 }
 
 .column {
@@ -19,7 +35,7 @@
   border-radius: 5px;
   display: flex;
   justify-content: center;
-  align-content: start;
+  align-content: flex-start;
   flex-wrap: wrap;
   font-weight: bolder;
   color: white;
@@ -72,12 +88,11 @@
   display: flex;
   justify-content: center;
   overflow-wrap: break-word;
-  
 }
 
 .item-description {
-  margin: auto 5px auto;
-  inline-size: 160px;
+  margin: 0px 10px 0px;
+  width: 160px;
   overflow-wrap: break-word;
   hyphens: auto;
   height: 90px;
@@ -88,6 +103,11 @@
 .form-group {
   margin: 10px;
 }
+
 .form-group-button {
   margin: 20px 10px 10px 10px;
+}
+
+.modal {
+  font-family: "Inconsolata";
 }
