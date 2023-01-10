@@ -2,7 +2,7 @@
   font-family: "Inconsolata";
   display: flex;
   flex-direction: row;
-  align-content: start;
+  align-content: flex-start;
 }
 
 .button-container {
@@ -28,7 +28,7 @@
 }
 
 .column {
-  height: 800px;
+  height: 610px;
   width: 200px;
   margin: 10px;
   border: 1px solid black;
@@ -75,7 +75,7 @@
 .movable-item {
   border-radius: 5px;
   background-color: #fff3f3;
-  height: 135px;
+  height: 125px;
   width: 180px;
   margin-top: 16px;
   font-weight: initial;

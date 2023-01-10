@@ -16,11 +16,11 @@ const Column = ({ children, className, title }) => {
             const { PLAN, DESIGN, DEVELOP, TEST, DEPLOY } = COLUMN_NAMES;
             const { currentColumnName } = item;
             return (currentColumnName === title) ||
-                (currentColumnName === PLAN && title === DESIGN && children.length < 5) ||
-                (currentColumnName === DESIGN && (title === PLAN || title === DEVELOP) && children.length < 5) ||
-                (currentColumnName === DEVELOP && (title === DESIGN || title === TEST) && children.length < 5) ||
-                (currentColumnName === TEST && (title === DEVELOP || title === DEPLOY) && children.length < 5) ||
-                (currentColumnName === DEPLOY && (title === TEST) && children.length < 5)
+                (currentColumnName === PLAN && title === DESIGN && children.length < 4) ||
+                (currentColumnName === DESIGN && (title === PLAN || title === DEVELOP) && children.length < 4) ||
+                (currentColumnName === DEVELOP && (title === DESIGN || title === TEST) && children.length < 4) ||
+                (currentColumnName === TEST && (title === DEVELOP || title === DEPLOY) && children.length < 4) ||
+                (currentColumnName === DEPLOY && (title === TEST) && children.length < 4)
         },
     });
 
