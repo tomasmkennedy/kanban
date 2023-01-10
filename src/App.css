@@ -15,8 +15,8 @@
   height: 800px;
   width: 200px;
   margin: 10px;
-  border-radius: 0px;
   border: 1px solid black;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-content: start;
@@ -29,6 +29,8 @@
   background-color: #fff;
   text-align: center;
   color: #000;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   border-bottom: 1px solid black;
   width: 200px;
   height: 28px;
@@ -55,13 +57,14 @@
 }
 
 .movable-item {
-  border-radius: 0px;
+  border-radius: 5px;
   background-color: #fff3f3;
   height: 135px;
   width: 180px;
   margin-top: 16px;
   font-weight: initial;
   color: initial;
+  transform: translate(0, 0);
 }
 
 .item-title {
