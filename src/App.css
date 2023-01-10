@@ -2,7 +2,8 @@
   font-family: "OpenSans";
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  align-content: start;
+  /* justify-content: space-around; */
 }
 
 .button-container {
@@ -14,12 +15,23 @@
   height: 800px;
   width: 200px;
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 0px;
+  border: 1px solid black;
   display: flex;
   justify-content: center;
+  align-content: start;
   flex-wrap: wrap;
   font-weight: bolder;
   color: white;
+}
+
+.column-title {
+  background-color: #fff;
+  text-align: center;
+  color: #000;
+  border-bottom: 1px solid black;
+  width: 200px;
+  height: 28px;
 }
 
 .plan-column {
@@ -43,19 +55,13 @@
 }
 
 .movable-item {
-  border-radius: 10px;
+  border-radius: 0px;
   background-color: #fff3f3;
   height: 135px;
-  width: 170px;
-  margin: 5px auto;
+  width: 180px;
+  margin-top: 16px;
   font-weight: initial;
   color: initial;
-}
-
-[contenteditable="true"]:active,
-[contenteditable="true"]:focus{
-  border:none;
-  outline:none;
 }
 
 .item-title {

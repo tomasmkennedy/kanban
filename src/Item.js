@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Form } from './form';
 
-const MovableItem = ({id, name, description, index, currentColumnName, moveCardHandler, setItems}) => {
+const MovableItem = ({ id, name, description, index, currentColumnName, moveCardHandler, setItems }) => {
     const ref = useRef(null);
 
     const [show, setShow] = useState(false);
@@ -15,9 +15,10 @@ const MovableItem = ({id, name, description, index, currentColumnName, moveCardH
     const handleShow = () => setShow(true);
 
     const [sName, setName] = useState(() => {
-        const saved = localStorage.getItem(id + 'n')
-        if (saved !== 'null' && saved !== 'undefined') {
-            console.log(saved)
+        const saved = localStorage.getItem(id + 'n');
+        console.log(saved)
+        console.log(name);
+        if (saved !== null && saved !== undefined) {
             const initialValue = JSON.parse(saved);
             return initialValue;
         }
@@ -28,7 +29,6 @@ const MovableItem = ({id, name, description, index, currentColumnName, moveCardH
     const [sDesc, setDescription] = useState(() => {
         const saved = localStorage.getItem(id + 'd')
         if (saved !== 'null' && saved !== 'undefined') {
-            console.log(saved)
             const initialValue = JSON.parse(saved);
             return initialValue;
         }
@@ -52,8 +52,6 @@ const MovableItem = ({id, name, description, index, currentColumnName, moveCardH
         if (event.target.name.value.trim()) {
             setName(event.target.name.value);
         }
-        console.log(event.target.name.value);
-        console.log(event.target.description.value);
     }
 
     const changeItemColumn = (currentItem, columnName) => {
@@ -108,15 +106,15 @@ const MovableItem = ({id, name, description, index, currentColumnName, moveCardH
         },
     });
 
-    const [{isDragging}, drag] = useDrag({
-        item: {index, name, currentColumnName},
+    const [{ isDragging }, drag] = useDrag({
+        item: { index, name, currentColumnName },
         type: 'task',
         end: (item, monitor) => {
             const dropResult = monitor.getDropResult();
 
             if (dropResult) {
-                const {name} = dropResult;
-                const {PLAN, DESIGN, DEVELOP, TEST, DEPLOY} = COLUMN_NAMES;
+                const { name } = dropResult;
+                const { PLAN, DESIGN, DEVELOP, TEST, DEPLOY } = COLUMN_NAMES;
                 switch (name) {
                     case PLAN:
                         changeItemColumn(item, PLAN);
@@ -148,20 +146,20 @@ const MovableItem = ({id, name, description, index, currentColumnName, moveCardH
     drag(drop(ref));
 
     return (
-        <div ref={ref} className='movable-item' style={{opacity}}>
+        <div ref={ref} className='movable-item' style={{ opacity }}>
             <div className='item-title' onClick={handleShow}>{sName}</div>
             <div className='item-description' onClick={handleShow}>{sDesc}</div>
-        <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-        >
-            <Modal.Header closeButton>
-                <Modal.Title>Edit Task</Modal.Title>
-            </Modal.Header>
-            <Modal.Body><Form onSubmit={onSubmit} sDesc={sDesc} sName={sName} /></Modal.Body>
-        </Modal>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Edit Task</Modal.Title>
+                </Modal.Header>
+                <Modal.Body><Form onSubmit={onSubmit} sDesc={sDesc} sName={sName} /></Modal.Body>
+            </Modal>
         </div>
     )
 }

@@ -5,19 +5,18 @@ import Column from './Container';
 import { COLUMN_NAMES } from "./constants";
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from "react-dnd-touch-backend";
+import { tasks } from './tasks';
+import { _ } from 'lodash'
 import './App.css';
-import { Button } from 'bootstrap';
 
 const App = () => {
     const isMobile = window.innerWidth < 600;
-    var data = require('./tasks.json');
-    // console.log(tasks);
-    const [items, setItems] = useState(data);
-    console.log(items);
-    const t = JSON.parse('{"id": 5, "name": "Item 5", "column": "Design"}')
+    const [items, setItems] = useState(tasks);
+    // const t = JSON.parse('{"id": 8, "name": "Item 8", "column": "Design"}')
     const addNewTask = () => {
+        const rId = _.uniqueId();
+        const t = JSON.parse('{"id": ' + rId + ', "name": "Item 8", "column": "Design"}');
         setItems(items.concat(t));
-        data.writeFile("tasks.json", items)
     }
     const moveCardHandler = (dragIndex, hoverIndex) => {
         const dragItem = items[dragIndex];
@@ -42,18 +41,18 @@ const App = () => {
             .filter((item) => item.column === columnName)
             .map((item, index) => (
                 <MovableItem key={item.id}
-                             id={item.id}
-                             name={item.name}
-                             description={item.description}
-                             currentColumnName={item.column}
-                             setItems={setItems}
-                             index={index}
-                             moveCardHandler={moveCardHandler}
+                    id={item.id}
+                    name={item.name}
+                    description={item.description}
+                    currentColumnName={item.column}
+                    setItems={setItems}
+                    index={index}
+                    moveCardHandler={moveCardHandler}
                 />
             ))
     }
 
-    const {PLAN, DESIGN, DEVELOP, TEST, DEPLOY} = COLUMN_NAMES;
+    const { PLAN, DESIGN, DEVELOP, TEST, DEPLOY } = COLUMN_NAMES;
 
     return (
         <div className="Kcontainer">
@@ -73,7 +72,6 @@ const App = () => {
                 <Column title={DEPLOY} className='column deploy-column'>
                     {returnItemsForColumn(DEPLOY)}
                 </Column>
-                <button onClick={addNewTask}>TEST</button>
             </DndProvider>
         </div>
     );
